@@ -37,7 +37,9 @@ defmodule NP.Mixfile do
     [extra_applications: [:logger]]
   end
   def application(_target) do
-    [mod: {NP.Application, []},
+    # TODO: Switch back
+    # [mod: {NP.Application, []},
+    [mod: {NP, []},
      extra_applications: [:logger]]
   end
 
@@ -60,7 +62,10 @@ defmodule NP.Mixfile do
   def deps(target) do
     [
       {:bootloader, "~> 0.1"},
-      {:nerves_runtime, "~> 0.4"}
+      {:nerves_runtime, "~> 0.4"},
+      {:nerves_leds, "~> 0.7"},
+      {:nerves_network, "~> 0.3"},
+      {:nerves_firmware_ssh, "~> 0.2"},
     ] ++ system(target)
   end
 
